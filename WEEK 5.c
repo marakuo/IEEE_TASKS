@@ -176,6 +176,113 @@ int main() {
 }
 _____________________________________________________________
 
+
+
+//p12
+#include<stdio.h>
+int oddeven(int start, int end) {
+    if (start>end) {
+        return 0;
+    }
+    if (start % 2 == 0) {
+        printf("Even: %d\n", start);
+    } else {
+        printf("Odd: %d\n", start);
+    }
+    oddeven(start+1, end);
+
+}
+int main() {
+    int start, end;
+    printf("Enter start and end: ");
+    scanf("%d %d", &start, &end);
+    printf("Numbers between %d and %d:\n", start, end);
+    oddeven(start, end);
+
+
+    return 0;
+}
+_____________________________________________________________
+//P16 
+#include <stdio.h>
+
+
+int reverse(int num, int rev) {
+    if (num == 0) {
+        return rev;
+    }
+    return reverse(num / 10, rev * 10 + num % 10);
+}
+
+
+int isPalindrome(int num) {
+    return num == reverse(num, 0);
+}
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    if (isPalindrome(num)) {
+        printf("%d is a palindrome number.\n", num);
+    } else {
+        printf("%d is not a palindrome number.\n", num);
+    }
+
+    return 0;
+}
+
+_____________________________________________________________
+//P17
+#include <stdio.h>
+
+
+int sumdigits(int num) {
+    if (num == 0) {
+        return 0;
+    }
+    return ((num % 10) + sumdigits(num / 10));
+
+}
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    printf("The sum of digits is %d", sumdigits(num));
+
+    return 0;
+}
+
+_____________________________________________________________
+//P18
+
+#include <stdio.h>
+
+
+int fact(int num) {
+    if (num <= 0) {
+        return 1;
+    }
+    return  num * fact(num-1);
+
+}
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    printf("The fact  of number is %d", fact(num));
+
+    return 0;
+}
+
+
+_____________________________________________________________
+
  //                                                                    *************hacker rank *************
 
 // P1
