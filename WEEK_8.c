@@ -23,58 +23,75 @@ int main() {
 
 /* code for win */
 
-//_________________________________________________________//
 
-//  p17
+//p 17  sorting an array 
 #include <stdio.h>
 
-float  fun(int * p, int *t, float *r) {
-    float si = (*p * *t * *r) /100;
-    return si;
-    }
 
+void swap(int *a , int *b) {
+    int temp = *a;
+    *a =*b;
+    *b =temp;
+}
+void sorting(int arr[], int size) {
+    for (int i = 0; i < size-1; i++) {
+        for (int j = i+1; j < size; j++) {
+            if (arr[i] > arr[j]) {
+                swap(&arr[i], &arr[j]);
+            }
+        }
+    }
+}
 
 int main() {
-    int p, t;
-    float r;
-    scanf("%d %d %f", &p , &t , &r);
-    int *p1 = &p;
-    int *p2 = &t;
-    float *p3 = &r;
-    fun(&p, &t, &r);
-    printf("%f\n", fun(p1, p2, p3));
+    int n;
+    int arr[n];
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        printf("arr[%d] = ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    printf("the original array: \n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    sorting(arr, n);
+
+    printf("the sorted array: \n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
 
     return 0;
 }
- //______________________________________________________//
-
-//P18
-
+//////////////////////////////////////////////
+//p18  returning multiple values using pointers 
 #include <stdio.h>
 
-float  fun(int * p, int *t, float *r) {
-    float base = 1 + (*r / 100);
-    float result = 1;
-
-    for (int i = 0; i < *t; i++) {
-        result *= base;
-    }
-    float ci = (*p) * result;
-
-    return ci ;
+void multple(int arr[],  int size) {
+    for (int i = 0; i < size; i++) {
+        arr[i]= 2 *i +1;
     }
 
+}
 
 int main() {
-    int p, t;
-    float r;
-    scanf("%d %d %f", &p , &t , &r);
-    int *p1 = &p;
-    int *p2 = &t;
-    float *p3 = &r;
-    fun(&p, &t, &r);
-    printf("%f\n", fun(p1, p2, p3));
-
-
+    int n;
+   int arr[n];
+    printf("Enter the number of odd num: ");
+    scanf("%d", &n);
+    multple(arr, n);
+    printf("the first %d odd numbers are ", n);
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
     return 0;
 }
+
+
+
