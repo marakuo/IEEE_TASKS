@@ -1,6 +1,7 @@
 // code for win
 /*- Solve Introduction to Arrays Problems: 1, 3, 5, 8, 9, 13, 15, 16, 19.
 - Solve Multi-Dimensional Arrays Problems: 24, 27, 30, 37, 40.*/
+
 //P1
 #include <stdio.h>
 
@@ -338,10 +339,311 @@ int main() {
 //mult-dimensional array
 ///////////////////////////////////////////////////////////////////////////////
 
+//P 24
+#include <stdio.h>
+#define size 3
+
+int main() {
+    int a[size][size];
+    int b[size][size];
+    int c[size][size];
+    printf("enter elements of matrix A\n");
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    printf("enter elements of matrix B\n");
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+
+            scanf("%d", &b[i][j]);
+        }
+    }
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            c[i][j] = a[i][j] - b[i][j];
+        }
+    }
+    printf("the resulted Matrix c is\n");
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+
+            printf("%d ", c[i][j]);
+        }
+        printf("\n");
+    }
+
+
+    return 0;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// p27
+#include <stdio.h>
+#define size 3
+
+int main() {
+    int a[size][size];
+    int b[size][size];
+    int check =1;
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+
+            scanf("%d", &b[i][j]);
+        }
+    }
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (a[i][j] != b[i][j]) {
+                 check =0;
+                break;
+            }
+        }
+    }
+    if (check == 1) {
+        printf("matrices are  identical");
+
+    }
+    else
+        printf("matrices are not identical");
+
+    return 0;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+//p 30
+#include <stdio.h>
+#define size 3
+int row_sum (int arr[size][size], int r) {
+    int sum =0;
+    if (r < 1 || r > size) {
+        printf("invalid row number\n");
+        return 1;
+    }
+
+
+    for (int j = 0; j < size; j++) {
+        sum += arr[r - 1][j];
+    }
+    return sum;
+
+}
+int col_sum (int arr[size][size], int c) {
+
+    int sum =0;
+    if (c < 1 || c > size) {
+        printf("invalid column  number\n");
+        return 1;
+    }
+
+
+    for (int i = 0; i < size; i++) {
+        sum += arr[i][c-1];
+    }
+    return sum;
+
+}
+int main() {
+    int a[size][size];
+    int c, r;
+
+
+    printf("Enter elements of matrix: \n");
+
+   
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    
+    printf("\nThe matrix is: \n");
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+
+    
+    printf("\nenter the row number (1 to %d) to calculate the sum: ", size);
+    scanf("%d", &r);
+    printf("\nenter the col number (1 to %d) to calculate the sum: ", size);
+    scanf("%d", &c);
+
+    
+   int sum_row = row_sum(a, r);
+   int sum_col = col_sum(a, c);
+
+    printf("Sum of elements in row %d is: %d\n", r, sum_row);
+    printf("Sum of elements in col %d is: %d\n", r, sum_col);
+
+    return 0;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+//p37
+#include <stdio.h>
+#define size 2
+
+int det (int arr[size][size]) {
+    int det = arr[0][0]* arr[1][1] -arr[0][1] *arr[1][0];
+    return det;
+
+}
+
+int main() {
+    int a[size][size];
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+    int determinant  = det (a);
+    printf("determinant = %d\n", determinant);
+
+
+    return 0;
+}
 
 
 
+///////////////////////////////////////////////////////////////////////////////
+
+// p40
+
+#include <stdio.h>
+#define size 3
+
+int  check (int arr[size][size]) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (arr[i][j] == arr[j][i] ) {
+                return 1;
+            }
+
+        }
+    }
+   
+        return 0;
+
+}
+
+int main() {
+    int a[size][size];
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+    int sym = check(a);
+    if (sym == 1)
+        printf("the matrix is symmetric\n");
+    else
+        printf("the matrix is not symmetric\n");
 
 
 
+    return 0;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// HackerRank 
+///////////////////////////////////////////////////////////////////////////////
+// 2D Array 
+#include <stdio.h>
+
+
+int  sum_elements (int arr[], int n) {
+    int sum =0;
+    for (int i = 0; i < n; i++) {
+       sum += arr[i];
+    }
+
+        return sum;
+
+}
+
+int main() {
+    int n;
+    int arr[n];
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++) {
+        printf("arr[%d]: ", i);
+        scanf("%d", &arr[i]);
+    }
+    printf("The sum of the elements is: %d\n", sum_elements(arr, n));
+
+
+    return 0;
+}
+ /////////////////////////////////////////////////////////////////////
+// 2D array
+
+#include <stdio.h>
+
+#define n 6
+int hourglass(int arr[n][n]) {
+    int max_sum = -63;
+
+    for (int i = 0; i < n - 2; i++) {
+        for (int j = 0; j < n - 2; j++) {
+            int sum = arr[i][j] + arr[i][j + 1] + arr[i][j + 2]
+                    + arr[i + 1][j + 1]
+                    + arr[i + 2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2];
+
+            if (sum > max_sum) {
+                max_sum = sum;
+            }
+        }
+    }
+
+    return max_sum;
+}
+
+
+
+int main() {
+    int arr[n][n];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+    int hour = hourglass(arr);
+    printf("%d", hour);
+    return 0;
+}
 
