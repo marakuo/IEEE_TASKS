@@ -1,4 +1,7 @@
 // instructions are given in the description 
+// warrior => node 
+// power level => data
+// i am dealing with linked lists as a list of warrior in a game 
 
 #include <stdio.h>
 #include <stdlib.h>
