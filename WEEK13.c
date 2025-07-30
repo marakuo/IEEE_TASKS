@@ -1,28 +1,4 @@
-/*
-==================================================================
-  WARRIOR LINKED LIST QUEST - INSTRUCTIONS  
-==================================================================
-
-
-1. Recruit Warriors:
-   - Add a new warrior to the front, back, or any spot in your team lineup.
-   - Every warrior has a power level (intger).
-
-2.  Lead the Team:
-   - Sometimes warriors fall. Remove the first, last, or any warrior in the line.
-
-3. View Your Army:
-   
-
-4. Team Intel:
-   - Count how many warriors remain.
-   - Search for a warrior by their power level.
-
-5.  Play It Like a Game:
-   - Choose from the menu (1-10) to command your squad.
- 
-==================================================================
-*/
+// instructions are given in the description 
 
 #include <stdio.h>
 #include <stdlib.h>
