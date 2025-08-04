@@ -1,4 +1,4 @@
-//Implement Stack Code
+//Implement Stack Code  (USING ARRAYS)
 #include <stdio.h>
 
 int stack[100];
@@ -98,6 +98,107 @@ int main() {
 
 
 ///______________________________________________________________________///
+//Implement Stack Code  (USING LINKED LISTS)
+#include <stdio.h>
+#include <stdlib.h>
+struct node {
+    int data;
+     struct node *link;
+
+};
+struct node *top = NULL;
+
+
+int  isEmpty() {
+    return (top == NULL);
+
+}
+// push function
+void push(int value) {
+    struct node *new_node = (struct node *)malloc(sizeof(struct node));
+    new_node->data = value;
+    new_node->link = top;
+    top = new_node;
+
+}
+// function to display from LIFO
+void display() {
+    struct node *temp = (struct node *)malloc(sizeof(struct node));
+    temp = top;
+    if (isEmpty()) {
+        printf("Stack is empty\n");
+    }
+    else {
+        while (temp != NULL) {
+            printf("%d\n", temp->data);
+            temp = temp->link;
+        }
+    }
+
+
+}
+// peek function
+void peek() {
+    if (isEmpty()) {
+        printf("The Stack is empty");
+    }else {
+        printf("The the top element is %d", top->data);
+    }
+}
+
+// pop function
+void pop() {
+    struct node *temp = (struct node *)malloc(sizeof(struct node));
+    temp = top;
+    if (isEmpty()) {
+        printf("Stack is empty");
+    }
+    else {
+        printf("The top element is %d", top->data);
+        top = top->link;
+        free(temp);
+    }
+}
+
+
+int main() {
+    int choice, value;
+
+    while (1) {
+        printf("\n--- Stack Menu ---\n");
+        printf("1. Push\n2. Pop\n3. Peek\n4. Display\n5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter value to push: ");
+            scanf("%d", &value);
+            push(value);
+            break;
+            case 2:
+                pop();
+            break;
+            case 3:
+                peek();
+            break;
+            case 4:
+                display();
+            break;
+            case 5:
+                printf("Exiting program.\n");
+            exit(0);
+            default:
+                printf("Invalid choice! Try again.\n");
+        }
+    }
+
+    return 0;
+}
+
+
+//________________________________________________//
+
 
 
 
