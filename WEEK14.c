@@ -261,6 +261,56 @@ int main() {
 // PROFIX TO INFIX IMPLEMENTAION
 
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+char stack[20][50]; // Stack for storing expressions
+int top = -1;
+
+// push function
+void push(char *str) {
+    strcpy(stack[++top], str);
+}
+//pop function
+
+char* pop() {
+    return stack[top--];
+}
+
+
+int isOperator(char ch) {
+    return (ch == '+' || ch == '-' || ch == '*' || ch == '/');
+}
+
+int main() {
+    char expression[50];
+    char symbol[2]; // To hold the current character as a string
+    char op1[50], op2[50], temp[100];
+
+    printf("Enter Postfix expression: ");
+    scanf("%s", expression);
+
+    for (int i = 0; expression[i] != '\0'; i++) {
+        char ch = expression[i];
+
+        if (isalnum(ch)) {
+            symbol[0] = ch;
+            symbol[1] = '\0';
+            push(symbol);
+        } else if (isOperator(ch)) {
+            strcpy(op2, pop());
+            strcpy(op1, pop());
+            sprintf(temp, "(%s%c%s)", op1, ch, op2);  // build infix expression
+            push(temp);
+        }
+    }
+
+    printf("Infix expression: %s\n", pop());
+
+    return 0;
+}
 
 
 
