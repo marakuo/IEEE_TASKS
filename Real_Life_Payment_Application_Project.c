@@ -315,16 +315,16 @@ Process finished with exit code 0
 
 
     ////////////////////////////////
-    C:\Users\workstation\CLionProjects\untitled6\cmake-build-debug\untitled6.exe
-Enter the holder name:HEN
+  C:\Users\workstation\CLionProjects\untitled6\cmake-build-debug\untitled6.exe
+Enter the holder name:malak
 
 Enter the PAN (16 digits):1234567890123456
 
 Enter the expiration year (YYYY):2020
 
-Enter the expiration month (MM):2
+Enter the expiration month (MM):1
 
-Enter the current month (MM) and current year (YYYY):2 2019
+Enter the current month (MM) and current year (YYYY):2 2018
 
 
 Account Information:
@@ -339,7 +339,7 @@ Balance updated successfully. New balance: 0.00
 Transaction Approved
 
 ========== TRANSACTION RECEIPT ==========
-Card Holder: HEN
+Card Holder: malak
 PAN: 1234567890123456
 Transaction Amount: $1000.00
 ----------------------------------------
@@ -357,7 +357,19 @@ PAN: 1234567890123456 | Amount: 1000.00 | Status: Approved
 === Transaction History (Linked List Stack) ===
 PAN: 1234567890123456 | Amount: 1000.00 | Status: Approved
 
-Do you want to undo last transaction? (y/n):
+Do you want to undo last transaction? (y/n):y
+
+ArrayStack Undo: PAN=1234567890123456, Amount=1000.00
+LinkedStack Undo: PAN=1234567890123456, Amount=1000.00
+
+Account Information:
+PAN: 1234567890123456
+Balance: 2000.00
+Max Payment Limit: 2000.00
+Account Status: Valid
+
+Process finished with exit code 0
+
 
 
 
