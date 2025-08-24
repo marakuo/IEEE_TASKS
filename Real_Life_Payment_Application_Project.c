@@ -295,4 +295,69 @@ int main() {
     return 0;
 }
 
+//==============//
+// OUTPUT //
+//==============//
+C:\Users\workstation\CLionProjects\untitled6\cmake-build-debug\untitled6.exe
+Enter the holder name:malak
+
+Enter the PAN (16 digits):1234567891234567
+
+Enter the expiration year (YYYY):2027
+
+Enter the expiration month (MM):1
+
+Enter the current month (MM) and current year (YYYY):1 2025
+
+Declined: Account not found
+
+Process finished with exit code 0
+
+
+    ////////////////////////////////
+    C:\Users\workstation\CLionProjects\untitled6\cmake-build-debug\untitled6.exe
+Enter the holder name:HEN
+
+Enter the PAN (16 digits):1234567890123456
+
+Enter the expiration year (YYYY):2020
+
+Enter the expiration month (MM):2
+
+Enter the current month (MM) and current year (YYYY):2 2019
+
+
+Account Information:
+PAN: 1234567890123456
+Balance: 1000.00
+Max Payment Limit: 2000.00
+Account Status: Valid
+
+Enter transaction amount:1000
+
+Balance updated successfully. New balance: 0.00
+Transaction Approved
+
+========== TRANSACTION RECEIPT ==========
+Card Holder: HEN
+PAN: 1234567890123456
+Transaction Amount: $1000.00
+----------------------------------------
+Previous Balance: $1000.00
+New Balance: $0.00
+Max Payment Limit: $2000.00
+----------------------------------------
+Status: APPROVED
+Date: Aug 24 2025
+========================================
+
+=== Transaction History (Array Stack) ===
+PAN: 1234567890123456 | Amount: 1000.00 | Status: Approved
+
+=== Transaction History (Linked List Stack) ===
+PAN: 1234567890123456 | Amount: 1000.00 | Status: Approved
+
+Do you want to undo last transaction? (y/n):
+
+
 
