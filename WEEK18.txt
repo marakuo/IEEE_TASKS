@@ -1,1 +1,57 @@
 
+🔹 Compilation Process (Part 1)
+1. Toolchain Definition
+
+A toolchain = the set of software tools used to convert human-written C code into something your hardware (microcontroller/processor) can actually execute.
+
+Typical toolchain components:
+
+Editor → where you write code (.c, .h).
+
+Compiler → converts C code → assembly code.
+
+Assembler → converts assembly code → machine code (.o object file).
+
+Linker → combines object files + libraries into one final executable (like .elf or .hex).
+
+Loader/Programmer → transfers the binary into your microcontroller’s memory (e.g., via JTAG, SWD, or USB).
+
+2. Toolchain Types
+
+Native Toolchain → runs on the same system it builds for.
+
+Example: On Windows PC, compiling C code that will run on Windows PC.
+
+Cross Toolchain → runs on one system but builds code for another system (different CPU/OS).
+
+Example: Writing C code on your PC but compiling it for an ARM Cortex-M microcontroller.
+
+Very common in Embedded C.
+
+3. Library Types
+
+In embedded systems, we use different types of libraries:
+
+Static Libraries (.a in GCC, .lib in MSVC)
+
+Code gets copied directly into your program at compile/link time.
+
+Pros: No dependency at runtime.
+
+Cons: Bigger executable size.
+
+Shared/Dynamic Libraries (.so in Linux, .dll in Windows)
+
+Code stays outside the main program, linked at runtime.
+
+Not common in very small microcontrollers (they usually lack OS support for dynamic linking).
+
+Standard Libraries
+
+Provided by toolchain, e.g., libc, libm.
+
+In embedded, often replaced by smaller versions like newlib, newlib-nano, or vendor-specific libraries (HAL, CMSIS, etc.).
+
+User Libraries
+
+Your own drivers, middleware, or third-party stacks.
